@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+body {
+            background-color: #f0f8ff; /* Cor de fundo da página */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #titulo {
+            text-align: center;
+            padding: 20px;
+            background-color: #4682b4;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #botoes-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5a9bd3;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        // Função para atualizar o conteúdo do resultado
+        function atualizarResultado(mensagem) {
+            const resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = mensagem;
+        }
+
+        // Exercício 1
+        function exercicio1() {
+            let A = parseFloat(prompt("Digite o valor de A: "));
+            let B = parseFloat(prompt("Digite o valor de B: "));
+            let C = parseFloat(prompt("Digite o valor de C: "));
+            let soma = A + B;
+
+            console.log("A soma de A mais B é: ${soma}")
+
+            if (soma < C) {
+                atualizarResultado(`A soma de A mais B é igual a ${soma} que é menor que o valor de C que é ${C}.`);
+            } else {
+                atualizarResultado(`A soma de A e B é: ${soma}, que é maior que o valor de C que é: ${C}`);
+            }
+        }
+
+        // Exercício 2
+        function exercicio2() {
+            let numero = parseFloat(prompt("Digite um número: "));
+            let mensagem = "";
+
+            if (numero % 2 === 0) {
+                mensagem += `O número ${numero} é par.<br>`;
+            } else {
+                mensagem += `O número ${numero} é ímpar.<br>`;
+            }
+
+            if (numero > 0) {
+                mensagem += `O número ${numero} é positivo.`;
+            } else if (numero < 0) {
+                mensagem += `O número ${numero} é negativo.`;
+            } else {
+                mensagem += "O número é zero.";
+            }
+
+            atualizarResultado(mensagem);
+        }
+        function exercicio3() {
+            let A = parseFloat(prompt("Digite o valor de A: 0"));
+            let B = parseFloat(prompt("Digite oo vallor de B: "));
+            if (A === B) {
+                soma = A + B
+                atualizarResultado(`A soma de A mais B é ${soma}`);
+            } else {
+                atualizarResultado("Os números não são iguais, portanto não serão somados.");
+            }
+        }
+
+         // Exercício 4
+         function exercicio4() {
+            let numero = parseInt(prompt("Digite um número inteiro: "));
+            let antecessor = numero - 1;
+            let sucessor = numero + 1;
+            atualizarResultado(`O antecessor de ${numero} é ${antecessor} e o sucessor é ${sucessor}.`);
+        }
+
+        // Exercício 5
+        function exercicio5() {
+            const salarioMinimo = 1293.20;
+            let salarioUsuario = parseFloat(prompt("Digite o valor do seu salário: "));
+            let quantidadeSalarios = (salarioUsuario / salarioMinimo).toFixed(2);
+            atualizarResultado(`Você ganha aproximadamente ${quantidadeSalarios} salários mínimos.`);
+        }
+
+        // Exercício 6
+        function exercicio6() {
+            let valor = parseFloat(prompt("Digite um valor qualquer: "));
+            let reajuste = (valor * 1.05).toFixed(2);
+            atualizarResultado(`O valor com reajuste de 5% é R$ ${reajuste}.`);
+        }
+
+        // Exercício 7
+        function exercicio7() {
+            let valor1 = confirm("O primeiro valor lógico é VERDADEIRO? Clique em 'OK' para VERDADEIRO ou 'Cancelar' para FALSO.");
+            let valor2 = confirm("O segundo valor lógico é VERDADEIRO? Clique em 'OK' para VERDADEIRO ou 'Cancelar' para FALSO.");
+            let mensagem = valor1 && valor2 ? "Ambos os valores são VERDADEIROS." : "Pelo menos um dos valores é FALSO.";
+            atualizarResultado(mensagem);
+        }
+
+        // Exercício 8
+        function exercicio8() {
+            let num1 = parseInt(prompt("Digite o primeiro número inteiro: "));
+            let num2 = parseInt(prompt("Digite o segundo número inteiro: "));
+            let num3 = parseInt(prompt("Digite o terceiro número inteiro: "));
+            let numeros = [num1, num2, num3].sort((a, b) => b - a);
+            atualizarResultado(`Os números em ordem decrescente são: ${numeros.join(", ")}.`);
+        }
+
+        // Exercício 9
+        function exercicio9() {
+            let peso = parseFloat(prompt("Digite seu peso (em kg): "));
+            let altura = parseFloat(prompt("Digite sua altura (em metros): "));
+            let imc = (peso / (altura ** 2)).toFixed(1);
+            let condicao = "";
+
+            if (imc < 18.5) condicao = "Abaixo do peso";
+            else if (imc <= 24.9) condicao = "Peso ideal (parabéns)";
+            else if (imc <= 29.9) condicao = "Levemente acima do peso";
+            else if (imc <= 34.9) condicao = "Obesidade grau I";
+            else if (imc <= 39.9) condicao = "Obesidade grau II (severa)";
+            else condicao = "Obesidade grau III (mórbida)";
+
+            atualizarResultado(`Seu IMC é ${imc}. Condição: ${condicao}.`);
+        }
+
+        function exercicio10() {
+            let nota1 = parseFloat(prompt("Digite a primeira nota: "));
+            let nota2 = parseFloat(prompt("Digite a segunda nota: "));
+            let nota3 = parseFloat(prompt("Digite a terceira nota: "));
+            let media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
+            atualizarResultado(`A média das notas é ${media}.`);
+        }
+
+        // Exercício 11
+        function exercicio11() {
+            let nome = prompt("Digite o nome do aluno: ");
+            let notas = [];
+            for (let i = 1; i <= 4; i++) {
+                notas.push(parseFloat(prompt(`Digite a nota ${i}: `)));
+            }
+            let media = (notas.reduce((a, b) => a + b, 0) / 4).toFixed(2);
+            let status = media >= 7 ? "aprovado" : "reprovado";
+            atualizarResultado(`O aluno ${nome} obteve média ${media} e foi ${status}.`);
+        }
+
+        // Função do exercício 12 - Condições de Pagamento
+        // Função do exercício 12 - Condições de Pagamento
+        function calcularPagamento() {
+            let valorProduto = parseFloat(prompt("Digite o valor do produto:"));
+            let formaPagamento = prompt("Escolha a forma de pagamento (Pix, dinheiro, à vista no cartão de crédito, parcelado no cartão em duas vezes ou parcelado no cartão em três ou mais vezes):").toLowerCase();
+
+            let valorFinal;
+
+            if (formaPagamento === "pix" || formaPagamento === "dinheiro") {
+                valorFinal = valorProduto * 0.85; // 15% de desconto
+            } else if (formaPagamento === "à vista no cartão de crédito") {
+                valorFinal = valorProduto * 0.90; // 10% de desconto
+            } else if (formaPagamento === "parcelado no cartão em duas vezes") {
+                valorFinal = valorProduto; // Preço normal, sem juros
+            } else if (formaPagamento === "parcelado no cartão em três ou mais vezes") {
+                valorFinal = valorProduto * 1.10; // 10% de juros
+            } else {
+                atualizarResultado("Forma de pagamento inválida. Tente novamente.");
+                return;
+            }
+
+            atualizarResultado(`O valor final a ser pago é R$ ${valorFinal.toFixed(2)}`);
+        }
+        // Exercício 13
+        function exercicio13() {
+            let nome = prompt("Digite o nome da pessoa: ");
+            let idade = parseInt(prompt("Digite a idade: "));
+            let status = idade >= 18 ? "maior" : "menor";
+            atualizarResultado(`${nome} é ${status} de idade.`);
+        }
+
+        // Exercício 14
+        function exercicio14() {
+            let A = parseFloat(prompt("Digite o valor de A: "));
+            let B = parseFloat(prompt("Digite o valor de B: "));
+            [A, B] = [B, A];
+            atualizarResultado(`Agora, A = ${A} e B = ${B}.`);
+        }
+
+        // Exercício 15
+        function exercicio15() {
+            let anoNascimento = parseInt(prompt("Digite o ano em que você nasceu:"));
+            let mesNascimento = parseInt(prompt("Digite o mês em que você nasceu (1-12):"));
+            let diaNascimento = parseInt(prompt("Digite o dia em que você nasceu (1-31):"));
+
+            let dataAtual = new Date();
+            let anoAtual = dataAtual.getFullYear();
+            let mesAtual = dataAtual.getMonth() + 1; // Janeiro é 0, por isso somamos 1
+            let diaAtual = dataAtual.getDate();
+
+            let anos = anoAtual - anoNascimento;
+            let meses = mesAtual - mesNascimento;
+            let dias = diaAtual - diaNascimento;
+
+            if (meses < 0 || (meses === 0 && dias < 0)) {
+                anos--; // Ajusta os anos caso o mês ou dia não tenha chegado
+                meses += 12;
+            }
+
+            if (dias < 0) {
+                meses--;
+                dias += 30; // Aproximação de 30 dias por mês
+            }
+
+            atualizarResultado(`Você viveu aproximadamente ${anos} anos, ${meses} meses e ${dias} dias.`);
+        }
+        // Exercício 16
+        function exercicio16() {
+            let lado1 = parseFloat(prompt("Digite o primeiro lado do triângulo: "));
+            let lado2 = parseFloat(prompt("Digite o segundo lado do triângulo: "));
+            let lado3 = parseFloat(prompt("Digite o terceiro lado do triângulo: "));
+
+            if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
+                if (lado1 === lado2 && lado2 === lado3) {
+                    atualizarResultado("O triângulo é equilátero.");
+                } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+                    atualizarResultado("O triângulo é isósceles.");
+                } else {
+                    atualizarResultado("O triângulo é escaleno.");
+                }
+            } else {
+                atualizarResultado("Os valores não formam um triângulo.");
+            }
+        }
+
+        // Exercício 17
+        function exercicio17() {
+            let F = parseFloat(prompt("Digite a temperatura em Fahrenheit: "));
+            let C = (5 * (F - 32) / 9).toFixed(2);
+            atualizarResultado(`Temperatura em Fahrenheit: ${F}°F<br>Temperatura em Celsius: ${C}°C.`);
+        }
+
+        // Exercício 18
+        function exercicio18() {
+            let francisco = 150;
+            let sara = 110;
+            let anos = 0;
+
+            while (francisco <= sara) {
+                francisco += 2;
+                sara += 3;
+                anos++;
+            }
+            atualizarResultado(`Serão necessários ${anos} anos para que Francisco seja maior que Sara.`);
+        }
+
+        // Exercício 19
+        function exercicio19() {
+            let mensagem = "Tabuada de 1 até 10:<br>";
+            for (let i = 1; i <= 10; i++) {
+                mensagem += `Tabuada do ${i}:<br>`;
+                for (let j = 1; j <= 10; j++) {
+                    mensagem += `${i} x ${j} = ${i * j}<br>`;
+                }
+                mensagem += "<br>";
+            }
+            atualizarResultado(mensagem);
+        }
+
+        // Exercício 20
+        function exercicio20() {
+            let numero = parseInt(prompt("Digite um número para ver sua tabuada: "));
+            let mensagem = `Tabuada do ${numero}:<br>`;
+            for (let i = 1; i <= 10; i++) {
+                mensagem += `${numero} x ${i} = ${numero * i}<br>`;
+            }
+            atualizarResultado(mensagem);
+        }
+
+        function exercicio21() {
+        let valor = Math.floor(Math.random() * 101); // Gera um número aleatório entre 0 e 100
+        atualizarResultado(`O valor aleatório gerado é: ${valor}`);
+        }
+
+        function exercicio22() {
+        let A = parseInt(prompt("Digite o valor de A:"));
+        let B = parseInt(prompt("Digite o valor de B:"));
+
+        if (B === 0) {
+            atualizarResultado("Divisão por zero não é permitida.");
+            return;
+        }
+
+        let quociente = Math.floor(A / B);
+        let resto = A % B;
+
+        atualizarResultado(`Quociente: ${quociente}, Resto: ${resto}`);
+        }
+        function exercicio23() {
+        let valorHora = parseFloat(prompt("Digite o valor da hora aula:"));
+        let aulas = parseInt(prompt("Digite o número de aulas lecionadas no mês:"));
+        let descontoINSS = parseFloat(prompt("Digite o percentual de desconto do INSS (em %):"));
+
+        let salarioBruto = valorHora * aulas;
+        let desconto = (salarioBruto * descontoINSS) / 100;
+        let salarioLiquido = salarioBruto - desconto;
+
+        atualizarResultado(`Salário Bruto: R$ ${salarioBruto.toFixed(2)}<br>
+                            Desconto do INSS: R$ ${desconto.toFixed(2)}<br>
+                            Salário Líquido: R$ ${salarioLiquido.toFixed(2)}`);
+        }
+        
+        function exercicio24() {
+        let tempo = parseFloat(prompt("Digite o tempo gasto na viagem (em horas):"));
+        let velocidade = parseFloat(prompt("Digite a velocidade média do carro (em km/h):"));
+
+        let distancia = tempo * velocidade; // Cálculo da distância
+        let litrosUtilizados = distancia / 12; // Cálculo do consumo (12 km/l)
+
+        atualizarResultado(`Distância percorrida: ${distancia.toFixed(2)} km<br>
+                            Litros de combustível utilizados: ${litrosUtilizados.toFixed(2)} L`);
+        }
+    </script>
+</head>
+<body>
+    <div id="titulo">Exercícios Interativos</div>
+
+    <div id="botoes-container">
+        <button onclick="exercicio1()">Exercício 1</button>
+        <button onclick="exercicio2()">Exercício 2</button>
+        <button onclick="exercicio3()">Exercício 3</button>
+        <button onclick="exercicio4()">Exercício 4</button>
+        <button onclick="exercicio5()">Exercício 5</button>
+        <button onclick="exercicio6()">Exercício 6</button>
+        <button onclick="exercicio7()">Exercício 7</button>
+        <button onclick="exercicio8()">Exercício 8</button>
+        <button onclick="exercicio9()">Exercício 9</button>
+        <button onclick="exercicio10()">Exercício 10</button>
+        <button onclick="exercicio11()">Exercício 11</button>
+        <button onclick="calcularPagamento()">Exercício 12</button>
+        <button onclick="exercicio13()">Exercício 13</button>
+        <button onclick="exercicio14()">Exercício 14</button>
+        <button onclick="exercicio15()">Exercício 15</button>
+        <button onclick="exercicio16()">Exercício 16</button>
+        <button onclick="exercicio17()">Exercício 17</button>
+        <button onclick="exercicio18()">Exercício 18</button>
+        <button onclick="exercicio19()">Exercício 19</button>
+        <button onclick="exercicio20()">Exercício 20</button>
+        <button onclick="exercicio21()">Exercício 21</button>
+        <button onclick="exercicio22()">Exercício 22</button>
+        <button onclick="exercicio23()">Exercício 23</button>
+        <button onclick="exercicio24()">Exercício 24</button>
+    </div>
+
+
+
+    <!-- Div para exibir os resultados -->
+    <div id="resultado"></div>
+</body>
+</html>
